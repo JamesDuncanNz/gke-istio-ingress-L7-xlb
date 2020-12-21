@@ -19,3 +19,5 @@ There are several resources contained in this file:
 	- The `istio-ingressgateway` Gateway resource is just used to ensure the gateway is configured to allow any host (`*`) on port `80`.
 - The `istio-ingress` this creates an [Ingress object for the External HTTP(S) Load Balancer](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress-xlb) resource within GCP.
 - The `backend-config` this creates a BackendConfig resource that allows us in this example to configure the [Backend service timeout](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-features#timeout) and [Connection draining timeout](https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-features#draining_timeout) on the Load Balancer. 
+
+You can apply `kubectl apply -f httpbin.yaml` to verify ingress is working, by visiting the IP address of the Load Balancer. You can quickly get the IP address by running the following`kubectl get ingress -n istio-system`
